@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Beer app</title>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="container" ng-app="beerApp" ng-controller="BeerController as beerCtrl">
+
+    <div class="container">
+      <h1>Beer collection</h1>
+      <div class="row">
+        <button class="btn btn-primary" ng-click="beerCtrl.reinitializeApp()">Reinitialize</button>
+        <input ng-model="query" class="form-control" placeholder="search box">
+      </div>
+      <div class="row">
+        <beer-thumbnail ng-repeat="aBeer in beerCtrl.beers| filter:query"> </beer-thumbnail>
+        <div class="col-md-4 thumbnail">
+            <form name="beerForm" ng-submit="beerForm.$valid && beerCtrl.addOrUpdate(beerCtrl.currentBeer)" novalidate>
+              <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" class="form-control" id="name" ng-model="beerCtrl.currentBeer.name" required>
+              </div>
+              <div class="form-group">
+                <label for="image">Image*</label>
+                <input type="text" class="form-control" id="image" ng-model="beerCtrl.currentBeer.img" required>
+              </div>
+              <div class="form-group">
+                <label for="Alcohol">Alcohol*</label>
+                <input type="text" class="form-control" id="Alcohol" ng-model="beerCtrl.currentBeer.alcohol" required>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" ng-model="beerCtrl.currentBeer.description" rows="3"></textarea>
+              </div>
+              <input type="hidden" id="id" ng-model="beerCtrl.currentBeer.id">
+              <button ng-hide="beerCtrl.currentBeer.id" type="submit" class="btn btn-primary" ng-disabled="beerForm.$invalid" >Add</button>
+              <button ng-show="beerCtrl.currentBeer.id" type="submit" class="btn btn-warning" ng-disabled="beerForm.$invalid" >Update</button>
+              <button ng-show="beerCtrl.currentBeer.id" ng-click="beerCtrl.reset()" class="btn btn-default">Cancel</button>
+            <br>
+            <pre>Form is {{beerForm.$valid}}<br>beer = {{ beerCtrl.currentBeer | json }}</pre>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <script charset="utf-8" src="../node_modules/angular/angular.js"></script>
+    <script charset="utf-8" src="app.js"></script>
+  </body>
+</html>

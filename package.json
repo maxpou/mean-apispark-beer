@@ -1,0 +1,20 @@
+{
+  "name": "mean-apispark-beer",
+  "version": "1.0.0",
+  "description": "Import with : ```mongoimport --db simple --collection people --jsonArray db.json```",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "body-parser": "^1.14.1",
+    "bootstrap": "^3.3.5",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

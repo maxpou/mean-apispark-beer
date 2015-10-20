@@ -1,0 +1,19 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <!--<img class="img-rounded" ng-src="{{aBeer.img}}">-->
+    <div class="caption">
+      <h3>{{aBeer.name}} ({{aBeer.alcohol}}°)</h3>
+      <p>
+        <em>{{aBeer.description | limitTo: 35 }}{{aBeer.description.length > 25 ? '...' : ''}}</em>
+      </p>
+      <p ng-if="aBeer.id">
+        <a class="btn btn-warning" ng-click="beerCtrl.modifyForm(aBeer)">
+          <span aria-hidden="true" class="glyphicon glyphicon glyphicon-pencil"></span>
+          Modify</a>
+        <a class="btn btn-danger" ng-click="beerCtrl.remove(aBeer)">
+          <span aria-hidden="true" class="glyphicon glyphicon glyphicon-trash"></span>
+          Delete</a>
+      </p>
+    </div>
+  </div>
+</div>
