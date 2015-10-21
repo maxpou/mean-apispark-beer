@@ -13,14 +13,14 @@
 
   beerApp.controller("BeerController", ['$http', function($http) {
 
-    var apiSparkParams = {
-      endPoint: "https://maxpou.apispark.net/v1"
+    var apiParams = {
+      endPoint: "http://scotch.local:3000"
     };
 
     var app = this;
     app.beers = [];
 
-    $http.get(apiSparkParams.endPoint + "/beers/").then(
+    $http.get(apiParams.endPoint + "/beers/").then(
       function successCallback(callback) {
         app.beers = callback.data;
       },
@@ -34,10 +34,10 @@
     };
 
     this.addOrUpdate = function(aBeer) {
-      if (aBeer.id) {
-        $http.put(apiSparkParams.endPoint + '/beers/' + aBeer.id, aBeer);
+      if (aBeer._id) {
+        $http.put(apiParams.endPoint + '/beers/' + aBeer._id, aBeer);
       } else {
-        $http.post(apiSparkParams.endPoint + '/beers/', aBeer).then(
+        $http.post(apiParams.endPoint + '/beers/', aBeer).then(
           function successCallback(callback) {
             aBeer = callback.data;
             app.beers.push(aBeer);
@@ -58,7 +58,7 @@
     };
 
     this.remove = function(aBeer) {
-      $http.delete(apiSparkParams.endPoint + '/beers/' + aBeer.id).then(
+      $http.delete(apiParams.endPoint + '/beers/' + aBeer._id).then(
         function successCallback(callback) {
           var elementIndex = app.beers.map(function getId(e) {
             return e.id;
@@ -76,7 +76,7 @@
       });
 
       //Recreate all beer :)
-      $http.get('../step1/beer-list.json').success(function(data) {
+      $http.get('../../step1/beer-list.json').success(function(data) {
         var beerWithoutId = data.map(function deleteId(aBeer) {
           aBeer.id = null;
           return aBeer;

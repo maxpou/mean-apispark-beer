@@ -1,10 +1,10 @@
-# Beer app
+# :beer: Beer app :beer:
 
 I really want to learn MEAN Stack. But I want to do this step by step.
-So I've decided to proceed in 3 steps :
+So I've decided to proceed in 3 steps:
 
 1. AngularJS with a json file
-2. AngularJs + Web API (APISpark)
+2. AngularJs + Web API (by using APISpark)
 3. MEAN Stack (Mongodb, Express, AngularJs & Node.js)
 
 I also decide do work with beer, because it's funniest than contact, products, todo-task, ...
@@ -12,14 +12,20 @@ Thanks to [@lostinbrittany](https://twitter.com/lostinbrittany) for his json fil
 
 I also use twitter Bootstrap because I won't spend time to code css.
 
-*If you found a typo/mistake, please fork and edit this post. Thank you :)*
+*If you found a typo or a mistake somewhere, please fork and edit this post. Thank you :)*
 
-## Step 1 : AngularJs - json file
+## Installation
 
-Here, you can manage your beers with CRUD operations.
+1. Download the code
+2. Install the npm modules: ```npm install```  
+Use the ```--no-bin-links``` argument if it fails.
+
+## Step 1: AngularJs - json file
+
+Here, you can manage your beers with CRUD operations.  
 Note that all fields are mandatory (except description).
 
-## Step 2 : AngularJs + Web API (APISpark)
+## Step 2: AngularJs + Web API (APISpark)
 
 ![APISpark logo](http://i1.wp.com/restlet.dreamhosters.com/wp-content/uploads/2012/08/0111_apispark_logo.png?resize=352%2C120)
 
@@ -29,14 +35,14 @@ Here, my Web API is **public**. So you can access to my [dashboard](https://apis
 
 If data are empty, or if you find errors, please reinitialize the database (**Reinitialize** button).
 
-Note : I use [promise paradigm](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/ch3.md) here because it's a very powerful feature ;-)
+Note: [Further reading about JS Promise](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/ch3.md) (because it's a so powerful feature ;-))
 
-## Step 3 : MEAN Stack (Mongodb, Express, AngularJs & Node.js)
+## Step 3: MEAN Stack (Mongodb, Express, AngularJs & Node.js)
 
-Mongodb :
-Import with : ```mongoimport --db simple --collection people --jsonArray db.json```
-
-NodeJS :
-* Install express dependencies : ```npm install express --no-bin-links```
-* Install other dependencies : ```npm install ...```
-* Launch server : ```node server.js```
+1. Initialize database (2 ways):
+  * Import data with json file: ```mongoimport --db beers --collection beers --jsonArray beer-list.json```
+  * Or : Use the *reinitialize button*
+2. In the server/server.js file, change the endpoint according to your configuration (replace *scotch.local:3000* to something like *localhost:3000*).  
+3. Start the server: ```node path/to.../server/server.js```.
+4. Visit the application in your browser at http://localhost:3000/ (you will see "Hello beer!")
+5. Enjoy beer :beer:
