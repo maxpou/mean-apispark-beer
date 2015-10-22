@@ -1,17 +1,17 @@
 (function() {
 
-  var beerApp = angular.module("beerApp", []);
+  var beerApp = angular.module('beerApp', []);
 
 
-  beerApp.directive("beerThumbnail", function() {
+  beerApp.directive('beerThumbnail', function() {
     return {
       restrict: 'E',
-      templateUrl: "beer-thumbnail.html"
+      templateUrl: 'beer-thumbnail.html'
     };
   });
 
 
-  beerApp.controller("BeerController", ['$http', function($http){
+  beerApp.controller('BeerController', ['$http', function($http){
     var app = this;
     app.beers = [];
 
@@ -19,11 +19,11 @@
         app.beers = data;
     });
 
-    app.currentBeer = {img:"../img/new.jpg"};
+    app.currentBeer = {img:'../img/new.jpg'};
 
     this.addOrUpdate = function(aBeer) {
       if (aBeer.id) {
-        console.log("It's already update. Thanks to data binding :)");
+        console.log('It\'s already update. Thanks to data binding :)');
       } else {
         aBeer.id= aBeer.name.replace(/ /g,'').toLowerCase();
         app.beers.push(aBeer);
@@ -36,7 +36,7 @@
     };
 
     this.reset = function() {
-      app.currentBeer = {img:"../img/new.jpg"};
+      app.currentBeer = {img:'../img/new.jpg'};
     };
 
     this.remove = function(aBeer) {

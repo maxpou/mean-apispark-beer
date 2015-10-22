@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var mongoose = require('mongoose');
 var cors = require('cors'); //authorize multiple ports
@@ -72,7 +74,7 @@ app.post('/beers', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-  res.send("Hello beer!");
+  res.send('Hello beer!');
 });
 
 app.listen(3000);

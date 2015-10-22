@@ -1,36 +1,36 @@
 (function() {
 
-  var beerApp = angular.module("beerApp", []);
+  var beerApp = angular.module('beerApp', []);
 
 
-  beerApp.directive("beerThumbnail", function() {
+  beerApp.directive('beerThumbnail', function() {
     return {
       restrict: 'E',
-      templateUrl: "beer-thumbnail.html"
+      templateUrl: 'beer-thumbnail.html'
     };
   });
 
 
-  beerApp.controller("BeerController", ['$http', function($http) {
+  beerApp.controller('BeerController', ['$http', function($http) {
 
     var apiSparkParams = {
-      endPoint: "https://maxpou.apispark.net/v1"
+      endPoint: 'https://maxpou.apispark.net/v1'
     };
 
     var app = this;
     app.beers = [];
 
-    $http.get(apiSparkParams.endPoint + "/beers/").then(
+    $http.get(apiSparkParams.endPoint + '/beers/').then(
       function successCallback(callback) {
         app.beers = callback.data;
       },
       function errorCallback(callback) {
-        alert("An error occurred while loading the data !");
+        alert('An error occurred while loading the data !');
       }
     );
 
     app.currentBeer = {
-      img: "../img/new.jpg"
+      img: '../img/new.jpg'
     };
 
     this.addOrUpdate = function(aBeer) {
@@ -53,7 +53,7 @@
 
     this.reset = function() {
       app.currentBeer = {
-        img: "../img/new.jpg"
+        img: '../img/new.jpg'
       };
     };
 
