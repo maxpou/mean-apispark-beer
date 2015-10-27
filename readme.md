@@ -43,7 +43,8 @@ Note: [Further reading about JS Promise](https://github.com/getify/You-Dont-Know
   * Import data with json file: ```mongoimport --db beers --collection beers --jsonArray beer-list.json```
   * Or : Use the *reinitialize button*
 2. In the server/server.js file, change the endpoint according to your configuration (replace *scotch.local:3000* to something like *localhost:3000*).  
-3. Start the server: ```npm start```.
+3. Start the server: ```npm start```.  
+You will need nodemon : ```npm install -g nodemon```
 4. Visit the application in your browser at http://localhost:3000/ (you will see "Hello beer!")
 5. Enjoy beer :beer:
 
