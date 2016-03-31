@@ -1,12 +1,23 @@
 {
   "name": "mean-apispark-beer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MEAN Stack in 3 steps",
   "main": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxpou/mean-apispark-beer"
   },
+  "keywords": [
+    "API",
+    "MEAN",
+    "APISpark",
+    "restlet",
+    "Mongodb",
+    "Express",
+    "Angular",
+    "Node",
+    "Beer"
+  ],
   "dependencies": {
     "angular": "^1.4.7",
     "body-parser": "^1.14.1",
@@ -16,10 +27,12 @@
     "mongoose": "^4.1.11"
   },
   "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0"
   },
   "scripts": {
     "start": "nodemon step3/server/server.js -L",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha step3/server/tests/"
   },
   "author": "Maxence POUTORD <maxence.poutord@gmail.com> (@_maxpou)",
   "license": "MIT"

@@ -17,3 +17,5 @@ app.use(bodyParser.json());
 require('./routes/hello.server.routes')(app);
 require('./routes/beer.server.routes')(app);
 app.listen(3000);
+
+module.exports = app;

@@ -5,10 +5,24 @@ mongoose.connect('mongodb://localhost/beers');
 var	Schema = mongoose.Schema;
 
 var beerSchema = new Schema({
-  name: String,
-  img: String,
-  alcohol: Number,
-  description: String
+  name: {
+    type: String,
+    required: true
+  },
+  img: {
+    type: String,
+    required: true
+  },
+  alcohol: {
+    type: Number,
+    min: [5, 'Provide real beer please (too few degree)'],
+    max: [25, 'Provide real beer please (too few degree)'],
+    required: true
+  },
+  description: {
+    type: String,
+    required: false
+  },
 });
 
 var Beer = mongoose.model('Beer', beerSchema);

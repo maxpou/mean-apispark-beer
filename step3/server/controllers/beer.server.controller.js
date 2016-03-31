@@ -13,7 +13,7 @@ exports.create = function(req, res) {
   var beerSend = new Beer(req.body);
   beerSend.save(function(err, newBeer) {
     if (err) {
-      res.send(500, err);
+      res.status(400).send(err);
     }
     res.status(201).json(newBeer);
   });
@@ -33,11 +33,11 @@ exports.getOne = function(req, res) {
 exports.update = function(req, res) {
   var beerId = req.params.id;
   if (beerId === req.body._id) {
-    Beer.findByIdAndUpdate(beerId, req.body, function(err, beer) {
+    Beer.findByIdAndUpdate(beerId, req.body, {'new':true} ,function(err, beer) {
       if (err) {
         throw err;
       }
-      res.status(200).json(beer);
+      res.status(204).send(beer);
     });
   }
 };
@@ -50,7 +50,7 @@ exports.detele = function(req, res) {
         res.send(err);
       }
     });
-    res.status(200).json({
+    res.status(204).json({
       message: 'Successfully deleted'
     });
   }
