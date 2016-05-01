@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maxpou/mean-apispark-beer.svg?branch=master)](https://travis-ci.org/maxpou/mean-apispark-beer)
+
 # :beer: Beer app :beer:
 
 I really want to learn MEAN Stack. But I want to do this step by step.
